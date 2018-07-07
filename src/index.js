@@ -4,19 +4,25 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import reducers from './reducer';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './config';
 import Login from './page/login/login';
 import Register from './page/register/register';
+import AuthRouter from './components/authrouter/authrouter'
+import BossInfo from './page/boss-info/boss-info';
+
 
 const store = createStore(reducers, applyMiddleware(thunk));
+
 
 ReactDOM.render((
   <Provider store={store}>
     <BrowserRouter>
       <div>
+        <AuthRouter />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
+        <Route path='/bossinfo' component={BossInfo} />
       </div>
     </BrowserRouter>
   </Provider>
