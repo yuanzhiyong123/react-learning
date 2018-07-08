@@ -27,10 +27,11 @@ export default class Register extends React.Component {
     this.props.register(this.state);
   }
   render() {
+    const redirectTo = this.props.user.redirectTo;
     return (
       <div>
         {/* 注册成功后判断页面跳转 */}
-        {this.props.user.redirectTo ? <Redirect to={this.props.user.redirectTo} /> : null}
+        { redirectTo&&redirectTo!='/login'&&redirectTo!='/register'? <Redirect to={this.props.user.redirectTo} /> : null}
         <Logo />
         <WingBlank>
           <List>

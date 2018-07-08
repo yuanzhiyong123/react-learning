@@ -6,6 +6,7 @@ const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 const REGISTER_ERR = 'REGISTER_ERR';
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 const GET_USERINFO = 'GET_USERINFO';
+const LOGOUT = 'LOGOUT';
 
 const initState = {
   isAuth: false,
@@ -25,11 +26,16 @@ export function user(state = initState, action) {
       return { ...state, ...action.payload, msg: '', isAuth: true };
     case REGISTER_ERR:  //失败
       return { ...state, ...action.payload, isAuth: false };
+    case LOGOUT:
+      return { ...initState, redirectTo: '/login' }
     default:
       return state;
   }
 }
 
+export function logout() {
+  return { type: LOGOUT }
+}
 export function update(payload) {
   return dispatch => {
     axios.post('/user/update', payload).then(res => {

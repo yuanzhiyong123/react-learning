@@ -23,7 +23,7 @@ export default class AvatarSelector extends Component {
     })
     const selectHeader = (this.state.text)?(<div><span>已选择：</span><img style={{width:'20px'}} src={require(`../../img/${this.state.text}.png`)} alt=""/></div>):'请选择头像';
     return (
-      <div>
+      <div style={{paddingTop:'45px'}}>
         <List renderHeader={()=>selectHeader}>
           <Grid 
             data={data} columnNum={5}

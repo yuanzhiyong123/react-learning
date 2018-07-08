@@ -1,0 +1,13 @@
+.am-tab-bar-bar{
+  position: fixed!important;
+  bottom: 0;
+}
+.am-navbar{
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: 100;
+}
+.page-container{
+  padding: 45px 0 50px 0;
+}
