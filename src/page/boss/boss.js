@@ -14,7 +14,6 @@ export default class Boss extends React.Component {
     this.props.getList('genius');
   }
   render() {
-    console.log(this.props);
     return (
       <WingBlank>
         {this.props.userList.map(v => (

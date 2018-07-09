@@ -18,7 +18,6 @@ export default class AuthRouter extends Component {
         this.props.getUserInfo(res.data.data);
       } else {
         //没有登陆信息 跳转到登陆页面
-        console.log(this.props);
         this.props.history.push('/login');
       }
     });

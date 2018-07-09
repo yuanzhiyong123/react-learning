@@ -1,13 +1,18 @@
 import React from 'react';
 import { WhiteSpace, Card } from 'antd-mobile';
+import {withRouter} from 'react-router-dom';
 
+@withRouter
 export default class UserItem extends React.Component {
+  handleRedirectToChat(v) {
+    this.props.history.push('/chat/'+v.username);
+  }
   render() {
     const v= this.props.data;
     return (
       <div>
         <WhiteSpace />
-        <Card>
+        <Card onClick={this.handleRedirectToChat.bind(this,v)}>
           <Card.Header
             title={v.title}
             extra={v.username}

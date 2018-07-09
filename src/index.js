@@ -13,6 +13,7 @@ import AuthRouter from './components/authrouter/authrouter'
 import BossInfo from './page/boss-info/boss-info';
 import GeniusInfo from './page/genius-info/genius-info';
 import PageContainer from './components/page-container/page-container';
+import Chat from './page/chat/chat';
 
 
 const store = createStore(reducers, applyMiddleware(thunk));
@@ -28,6 +29,7 @@ ReactDOM.render((
           <Route path='/register' component={Register} />
           <Route path='/bossinfo' component={BossInfo} />
           <Route path='/geniusinfo' component={GeniusInfo} />
+          <Route path='/chat/:id' component={Chat} />
           <Route component={PageContainer} />
         </Switch>
       </div>

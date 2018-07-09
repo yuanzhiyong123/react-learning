@@ -4,8 +4,10 @@ import { WhiteSpace, WingBlank, List, InputItem, Button } from 'antd-mobile';
 import { connect } from 'react-redux';
 import { login } from '../../redux/user.redux';
 import { Redirect} from 'react-router-dom';
+import formHight from '../../components/form-high/form-high';
 
 @connect(state => state, { login })
+@formHight
 export default class Login extends React.Component {
   constructor() {
     super();
@@ -17,13 +19,14 @@ export default class Login extends React.Component {
   redirectToRegister() {
     this.props.history.push('/register');
   }
-  handleChange(key, val) {
-    this.setState({
-      [key]: val
-    });
-  }
+  // handleChange(key, val) {
+  //   this.setState({
+  //     [key]: val
+  //   });
+  // }
   handleLogin() {
-    this.props.login(this.state);
+    // console.log(this.poros)
+    this.props.login(this.props.state);
   }
   render() {
     const redirectTo = this.props.user.redirectTo;
@@ -35,11 +38,11 @@ export default class Login extends React.Component {
         <WingBlank>
           <List>
             <InputItem
-              onChange={this.handleChange.bind(this, 'username')}
+              onChange={this.props.handleChange.bind(this,'username')}
             >用户</InputItem>
             <InputItem
               type="password"
-              onChange={this.handleChange.bind(this, 'password')}
+              onChange={this.props.handleChange.bind(this,'password')}
             >密码</InputItem>
           </List>
           <WhiteSpace />
