@@ -11,3 +11,10 @@
 .page-container{
   padding: 45px 0 50px 0;
 }
+
+#msg-right .am-list-content{
+  text-align: right;
+}
+#msg-right .am-list-extra{
+  flex-basis:auto;
+}

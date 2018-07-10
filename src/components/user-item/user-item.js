@@ -5,7 +5,7 @@ import {withRouter} from 'react-router-dom';
 @withRouter
 export default class UserItem extends React.Component {
   handleRedirectToChat(v) {
-    this.props.history.push('/chat/'+v.username);
+    this.props.history.push('/chat/'+v._id);
   }
   render() {
     const v= this.props.data;
