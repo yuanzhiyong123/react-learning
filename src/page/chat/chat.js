@@ -16,7 +16,6 @@ export default class Chat extends React.Component {
   }
   componentDidMount() {
     if (this.props.chat.msgList.length == 0) {
-      console.log('没有数据');
       this.props.receiveMsg();
       this.props.getMsgList();
     }
@@ -39,25 +38,30 @@ export default class Chat extends React.Component {
   render() {
     console.log(this.props)
     const Item = List.Item;
+    const userId = this.props.user._id;
+    const target = this.props.match.params.id;
+    const chatId = [userId, target].sort().join('_');
     return (
       <div>
         <NavBar
           icon={<Icon type="left" />}
-          onLeftClick={()=>{this.props.history.goBack()}}
+          onLeftClick={() => { this.props.history.goBack() }}
         >
-          {this.props.match.params.id}
+          {this.props.chat.users[target] ? this.props.chat.users[target].username : ''}
         </NavBar>
-        <List>
-          {this.props.chat.msgList.map((v, index) => (
-
-            v.from == this.props.user._id ? (
-              <div id='msg-right' key={index}>
-                <Item extra={<img src={require(`../../img/${this.props.user.avatar}`)} alt='' />}>{v.content}</Item>
-              </div>
-            ) : (<Item key={index}>{v.content}</Item>)
-
-          ))}
-        </List>
+        <div style={{ position: 'absolute', top: '45px', bottom: '45px', overflow: 'auto', width: '100%' }}>
+          <List>
+            {this.props.chat.msgList.map((v, index) => {
+              return (
+                v.chatid === chatId ? (v.from == userId ? (
+                  <div id='msg-right' key={index}>
+                    <Item extra={<img src={require(`../../img/${this.props.user.avatar}`)} alt='' />}>{v.content}</Item>
+                  </div>
+                ) : (<Item thumb={this.props.chat.users[v.from].avatar ? <img src={require(`../../img/${this.props.chat.users[v.from].avatar}`)} alt='' /> : ''} key={index}>{v.content}</Item>)) : ''
+              )
+            })}
+          </List>
+        </div>
         <div style={{ position: 'fixed', 'bottom': 0, width: '100%' }}>
           <List>
             <InputItem

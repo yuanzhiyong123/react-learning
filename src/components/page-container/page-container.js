@@ -15,8 +15,10 @@ function Msg() {
 @connect(state => state, { getMsgList, receiveMsg })
 export default class PageContainer extends React.Component {
   componentDidMount() {
-    this.props.receiveMsg();
-    this.props.getMsgList();
+    if (this.props.chat.msgList.length == 0) {
+      this.props.receiveMsg();
+      this.props.getMsgList();
+    }
   }
   render() {
     const TabBarList = [
