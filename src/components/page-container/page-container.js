@@ -6,12 +6,12 @@ import TabBarComponent from '../tabbar/tabbar'
 import Boss from '../../page/boss/boss';
 import Genius from '../../page/genius/genius';
 import User from '../../page/usercenter/usercenter';
+import Msg from '../../page/msg/msg';
 import { getMsgList, receiveMsg } from '../../redux/chat.redux';
 
 
-function Msg() {
-  return <div>Msg</div>
-}
+
+
 @connect(state => state, { getMsgList, receiveMsg })
 export default class PageContainer extends React.Component {
   componentDidMount() {
