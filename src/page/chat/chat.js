@@ -1,11 +1,11 @@
 import React from 'react';
 import { List, InputItem, NavBar, Icon } from 'antd-mobile';
 import { connect } from 'react-redux';
-import { getMsgList, sendMsg, receiveMsg } from '../../redux/chat.redux';
+import { getMsgList, sendMsg, receiveMsg, readMsg } from '../../redux/chat.redux';
 
 
 
-@connect(state => state, { getMsgList, sendMsg, receiveMsg })
+@connect(state => state, { getMsgList, sendMsg, receiveMsg, readMsg })
 export default class Chat extends React.Component {
   constructor() {
     super();
@@ -19,6 +19,10 @@ export default class Chat extends React.Component {
       this.props.receiveMsg();
       this.props.getMsgList();
     }
+  }
+  componentWillUnmount() {
+    const to = this.props.match.params.id;
+    this.props.readMsg(to);
   }
   handleChange(v) {
     this.setState({
