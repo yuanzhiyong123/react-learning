@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { List, WhiteSpace, WingBlank, Badge } from 'antd-mobile';
 
-
 @connect(state => state)
 export default class Msg extends React.Component {
   getLast(arr) {
