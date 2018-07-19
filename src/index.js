@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import reducers from './reducer';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './config';
 import './index.css'
 import Login from './page/login/login';
@@ -18,14 +18,21 @@ import Chat from './page/chat/chat';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
-
+function Home () {
+  return (
+    <div>
+      <Redirect to='/login' />
+    </div>
+  )
+}
 ReactDOM.render((
   <Provider store={store}>
     <BrowserRouter>
       <div>
         <AuthRouter />
         <Switch>
-          <Route path='/login' component={Login} />
+          <Route path='/' exact component={Home} />
+          <Route path='/login'  component={Login} />
           <Route path='/register' component={Register} />
           <Route path='/bossinfo' component={BossInfo} />
           <Route path='/geniusinfo' component={GeniusInfo} />
