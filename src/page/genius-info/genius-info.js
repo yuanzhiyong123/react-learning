@@ -34,7 +34,7 @@ export default class GeniusInfo extends React.Component {
     const redirectTo = this.props.user.redirectTo;
     return (
       <div>
-        {(redirectTo && redirectTo != path) ? <Redirect to={this.props.user.redirectTo} /> : null}
+        {(redirectTo && redirectTo !== path) ? <Redirect to={this.props.user.redirectTo} /> : null}
         <NavBar
           mode="dark"
         >牛人信息完善</NavBar>

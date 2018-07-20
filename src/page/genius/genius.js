@@ -7,14 +7,11 @@ import UserItem from '../../components/user-item/user-item';
 
 @connect(state => state.chatuser, { getList })
 export default class Genius extends React.Component {
-  constructor() {
-    super();
-  }
   componentDidMount() {
     this.props.getList('boss');
   }
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <WingBlank>
         {this.props.userList.map(v => (

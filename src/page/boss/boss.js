@@ -7,9 +7,6 @@ import UserItem from '../../components/user-item/user-item';
 
 @connect(state => state.chatuser, { getList })
 export default class Boss extends React.Component {
-  constructor() {
-    super();
-  }
   componentDidMount() {
     this.props.getList('genius');
   }

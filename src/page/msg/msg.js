@@ -8,7 +8,7 @@ export default class Msg extends React.Component {
     return arr[arr.length - 1];
   }
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const Item = List.Item;
     const Brief = Item.Brief;
     const userId = this.props.user._id;
@@ -19,9 +19,9 @@ export default class Msg extends React.Component {
       }
       group[v.chatid].push(v);
     });
-    console.log(group);
+    // console.log(group);
     const msgList = Object.values(group);
-    console.log(msgList);
+    // console.log(msgList);
     msgList.sort((a, b) => {
       const a_last = this.getLast(a).create_time;
       const b_last = this.getLast(b).create_time;

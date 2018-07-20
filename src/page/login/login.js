@@ -33,7 +33,7 @@ export default class Login extends React.Component {
     return (
       <div>
         {/* 注册成功后判断页面跳转 */}
-        {redirectTo&&redirectTo!='/login' ? <Redirect to={this.props.user.redirectTo} /> : null}
+        {redirectTo&&redirectTo!=='/login' ? <Redirect to={this.props.user.redirectTo} /> : null}
         <Logo />
         <WingBlank>
           <List>

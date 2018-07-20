@@ -15,7 +15,7 @@ export default class Chat extends React.Component {
     }
   }
   componentDidMount() {
-    if (this.props.chat.msgList.length == 0) {
+    if (this.props.chat.msgList.length === 0) {
       this.props.receiveMsg();
       this.props.getMsgList();
     }
@@ -30,7 +30,7 @@ export default class Chat extends React.Component {
     });
   }
   handleSend() {
-    console.log('click');
+    // console.log('click');
     const from = this.props.user._id;
     const to = this.props.match.params.id;
     const msg = this.state.text;
@@ -40,7 +40,7 @@ export default class Chat extends React.Component {
     });
   }
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     const Item = List.Item;
     const userId = this.props.user._id;
     const target = this.props.match.params.id;
@@ -57,7 +57,7 @@ export default class Chat extends React.Component {
           <List>
             {this.props.chat.msgList.map((v, index) => {
               return (
-                v.chatid === chatId ? (v.from == userId ? (
+                v.chatid === chatId ? (v.from === userId ? (
                   <div id='msg-right' key={index}>
                     <Item extra={<img src={require(`../../img/${this.props.user.avatar}`)} alt='' />}>{v.content}</Item>
                   </div>

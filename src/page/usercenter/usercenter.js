@@ -27,7 +27,7 @@ export default class User extends React.Component {
     const Brief = Item.Brief;
     return (
       <div>
-        {props.redirectTo && props.redirectTo == '/login' ? <Redirect to='/login' /> : null}
+        {props.redirectTo && props.redirectTo === '/login' ? <Redirect to='/login' /> : null}
         {props.avatar ? (
           <div>
             <Result

@@ -15,7 +15,7 @@ import { getMsgList, receiveMsg } from '../../redux/chat.redux';
 @connect(state => state, { getMsgList, receiveMsg })
 export default class PageContainer extends React.Component {
   componentDidMount() {
-    if (this.props.chat.msgList.length == 0) {
+    if (this.props.chat.msgList.length === 0) {
       this.props.receiveMsg();
       this.props.getMsgList();
     }
@@ -28,7 +28,7 @@ export default class PageContainer extends React.Component {
         title: '牛人列表',
         icon: 'boss',
         component: Boss,
-        hide: this.props.user.type != 'boss'
+        hide: this.props.user.type !== 'boss'
       },
       {
         path: '/genius',
@@ -36,7 +36,7 @@ export default class PageContainer extends React.Component {
         title: 'BOSS列表',
         icon: 'job',
         component: Genius,
-        hide: this.props.user.type != 'genius'
+        hide: this.props.user.type !== 'genius'
       },
       {
         path: '/msg',

@@ -10,15 +10,6 @@ const RadioItem = Radio.RadioItem;
 @connect(state => state, { register })
 @formHight
 export default class Register extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   username: '',
-    //   password: '',
-    //   repeatpassword: '',
-    //   type: 'genius'
-    // };
-  }
   componentDidMount() {
     this.props.handleChange('type','genius');
   }
@@ -35,7 +26,7 @@ export default class Register extends React.Component {
     return (
       <div>
         {/* 注册成功后判断页面跳转 */}
-        { redirectTo&&redirectTo!='/login'&&redirectTo!='/register'? <Redirect to={this.props.user.redirectTo} /> : null}
+        { redirectTo&&redirectTo!=='/login'&&redirectTo!=='/register'? <Redirect to={this.props.user.redirectTo} /> : null}
         <Logo />
         <WingBlank>
           <List>
