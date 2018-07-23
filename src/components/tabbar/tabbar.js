@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 @connect(state => state.chat)
 export default class TabBarComponent extends React.Component {
   render() {
-    const TabBarList = this.props.TabBarList.filter(v => v.hide !== true);
+    const TabBarList = this.props.TabBarList.filter(v => v.hide !== true); 
     const path = this.props.location.pathname;
     return (
       <TabBar>
