@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import reducers from './reducer';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './config';
 import './index.css'
 import Login from './page/login/login';
@@ -27,7 +27,7 @@ function Home () {
 }
 ReactDOM.render((
   <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
       <div>
         <AuthRouter />
         <Switch>
@@ -40,6 +40,6 @@ ReactDOM.render((
           <Route component={PageContainer} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   </Provider>
 ), document.getElementById('root'));
